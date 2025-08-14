@@ -27,8 +27,8 @@
     </div>
 
     <div class="comment-buttons">
-      <button class="show-replies-button" data-id="{{ id }}" style="display: {% if has_reply %}inline{% else %}none{% endif %}">See All Replies</button>
-      <button class="reply_button" data-id="{{ id }}"><i class="fa-solid fa-reply"></i></button>
+      <button class="show-replies-button" onclick="showReplies(this)"  data-id="{{ id }}" style="display: {% if has_reply %}inline{% else %}none{% endif %}">See All Replies</button>
+      <button class="reply_button" onclick="createReply(this)" data-id="{{ id }}"><i class="fa-solid fa-reply"></i></button>
     </div>
     <div class="replies-container" id="replies-{{ id }}" style="display:none;" style="padding: 0;"></div>
   </div>
