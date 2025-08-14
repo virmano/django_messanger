@@ -26,3 +26,90 @@ body {
     line-height: 70px;
     text-align: center;
 }
+
+.create-comment-block {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+    width: 100%;
+    background: #fff;
+    z-index: 1000;
+}
+
+.fixed-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.user-info-inner {
+    width: 50%;
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+    height: 30px;
+    font-size: 16px;
+}
+
+.user-info-inner input {
+    width: 50%;
+    padding: 8px 12px;
+    box-sizing: border-box;
+}
+
+
+.captcha-inner {
+    width: 40%;
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.send-button {
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3 ease-in;
+}
+
+.send-button:active {
+    transform: scale(0.85);
+}
+
+.captcha-inner i {
+    font-size: 30px;
+    color: #7c4a24;
+}
+
+.captcha-message {
+    margin-bottom: 10px;
+    padding: 5px;
+    background-color: #e9e7e7;
+    width: 100%;
+    text-align: center;
+}
+
+.reply-message {
+    height: 70px;
+    display: none;
+    gap: 100px;
+    justify-content: center;
+    align-items: center;
+}
+
+.reply-message p {
+    margin: 0;
+}
+
+footer {
+    display: flex;
+    height: 350px;
+    justify-content: center;
+    gap: 20px;
+}

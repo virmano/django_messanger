@@ -15,6 +15,8 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+RECAPTCHA_PUBLIC_KEY = '6LfCFqUrAAAAAGVlqHMq5EvZ5Xf1sU5Rdbcxvxfm'
+RECAPTCHA_PRIVATE_KEY = '6LfCFqUrAAAAADCkGUMYhEjgsN1fKSRyjPI0mS1X'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -31,6 +33,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'captcha',
     'main',
     'django.contrib.admin',
     'django.contrib.auth',
