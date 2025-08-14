@@ -16,6 +16,17 @@
         <div class="header_text">
             <p>Text every mind you have</p>
         </div>
+        <form method="get" id="sortForm" class="sort-form">
+            <label for="sortSelect">Сортировать по:</label>
+            <select id="sortSelect" name="sort" onchange="document.getElementById('sortForm').submit();" >
+                <option value="-created_at" {% if sort_param == '-created_at' %}selected{% endif %}>Новые сверху</option>
+                <option value="created_at" {% if sort_param == 'created_at' %}selected{% endif %}>Старые сверху</option>
+                <option value="username" {% if sort_param == 'username' %}selected{% endif %}>По имени (A→Z)</option>
+                <option value="-username" {% if sort_param == '-username' %}selected{% endif %}>По имени (Z→A)</option>
+                <option value="email" {% if sort_param == 'email' %}selected{% endif %}>По почте (A→Z)</option>
+                <option value="-email" {% if sort_param == '-email' %}selected{% endif %}>По почте (Z→A)</option>
+            </select>
+        </form>
     </header>
 
     <div class="content">
