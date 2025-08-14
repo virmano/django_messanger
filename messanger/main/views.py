@@ -39,3 +39,8 @@ def index(request):
         "error": error,
         "sort_param": sort_param
     })
+
+
+def get_replies(request, comment_id):
+    replies = Comments.objects.filter(reply_id=comment_id).order_by('created_at')
+    return render(request, 'main/replies_list.html', {'replies': replies})
