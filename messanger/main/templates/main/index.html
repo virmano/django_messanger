@@ -25,5 +25,31 @@
         {% endfor %}
     </div>
 
+    <footer class="footer">
+    </footer>
+
+    <div class="create-comment-block">
+        <div class="reply-message">
+            <p>Вы отвечаете на сообщение... </p>
+            <button class="btn btn-secondary" onclick="cancelReply()">отмена</button>
+        </div>
+
+        <form method="POST" class="fixed-input">
+            {% csrf_token %}
+
+            {{ form.reply }}
+
+            <div class="user-info-inner">
+                {{ form.username }}
+                {{ form.email }}
+            </div>
+                {{ form.text }}
+            <div class="captcha-inner">
+                {{ form.captcha }}
+                <button class="send-button" type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+            {% if error %}<div class="captcha-message">{{ error }}</div>{% endif %}
+        </form>
+    </div>
 </body>
 </html>
