@@ -1,0 +1,36 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="{% static 'main/css/comment-style.css' %}">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+
+ <div class="{% if is_reply %}reply-comment{% else %}comment{% endif %}" style="display: {% if is_reply %}none{% else %}block{% endif %};">
+    <div class="comment-header">
+      <img class="avatar_image" src="{% static 'main/img/avatar.png' %}" alt="">
+      <div class="comment_info">
+        <span class="comment-author">{{ username }}</span>
+        <span class="comment-date">{{ date }} в {{ time }}</span>
+        <span class="comment-email"> {{ email }} </span>
+      </div>
+    </div>
+    <div class="comment-text">
+      <span> {{ text }} </span>
+    </div>
+
+    <div class="comment-buttons">
+      <button class="show-replies-button" data-id="{{ id }}" style="display: {% if has_reply %}inline{% else %}none{% endif %}">See All Replies</button>
+      <button class="reply_button" data-id="{{ id }}"><i class="fa-solid fa-reply"></i></button>
+    </div>
+    <div class="replies-container" id="replies-{{ id }}" style="display:none;" style="padding: 0;"></div>
+  </div>
+
+</body>
+</html>
