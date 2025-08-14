@@ -30,3 +30,4 @@ function showReplies(button) {
     } else {
         container.style.display = 'none';
     }
+}
