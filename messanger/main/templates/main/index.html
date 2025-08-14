@@ -17,12 +17,26 @@
         </div>
     </header>
 
-    <div class="content">
-        {% for comment in comments %}
-            {% with date=comment.created_at|date:"Y-m-d" time=comment.created_at|time:"H:i" %}
-                {% include "main/comment-block.html" with username=comment.username date=date time=time email=comment.email text=comment.text has_reply=comment.has_reply reply=comment.reply id=comment.id %}
-            {% endwith %}
-        {% endfor %}
+    <div class="paginator">
+
+        <div class="content">
+            {% for comment in comments %}
+                {% with date=comment.created_at|date:"Y-m-d" time=comment.created_at|time:"H:i" %}
+                    {% include "main/comment-block.html" with username=comment.username date=date time=time email=comment.email text=comment.text has_reply=comment.has_reply reply=comment.reply id=comment.id %}
+
+
+                {% endwith %}
+            {% endfor %}
+        </div>
+
+        <div class="paginator-butts">
+            {% if comments.has_previous %}
+                <a href="?page={{ comments.previous_page_number }}&sort={{ sort_param }}" class="page-butt">‹ Предыдущая</a>
+            {% endif %}
+            {% if comments.has_next %}
+                <a href="?page={{ comments.next_page_number }}&sort={{ sort_param }}" class="page-butt">Следующая ›</a>
+            {% endif %}
+        </div>
     </div>
 
     <footer class="footer">
