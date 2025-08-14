@@ -4,5 +4,6 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='main'),
-    path('captcha/', include('captcha.urls'))
+    path('captcha/', include('captcha.urls')),
+    path('get_replies/<int:comment_id>/', views.get_replies, name='get_replies'),
 ]

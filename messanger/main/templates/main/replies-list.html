@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+{% for reply in replies %}
+    {% with date=reply.created_at|date:"Y-m-d" time=reply.created_at|time:"H:i" %}
+        {% include "main/comment-block.html" with username=reply.username date=date time=time email=reply.email text=reply.text has_reply=reply.has_reply reply=reply.reply is_reply=True id=reply.id level=reply.level %}
+    {% endwith %}
+{% empty %}
+    <p class="no-replies">Пока нет ответов</p>
+{% endfor %}
+
+</body>
+</html>
+
