@@ -11,10 +11,12 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import load_dotenv
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+load_dotenv(BASE_DIR / ".env")
 
 RECAPTCHA_PUBLIC_KEY = '6LfCFqUrAAAAAGVlqHMq5EvZ5Xf1sU5Rdbcxvxfm'
 RECAPTCHA_PRIVATE_KEY = '6LfCFqUrAAAAADCkGUMYhEjgsN1fKSRyjPI0mS1X'
@@ -26,8 +28,7 @@ RECAPTCHA_PRIVATE_KEY = '6LfCFqUrAAAAADCkGUMYhEjgsN1fKSRyjPI0mS1X'
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "changeme")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
+DEBUG = os.getenv("DJANGO_DEBUG", "False") == "True"
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "").split(",")
 
 # Если пусто, можно задать хотя бы localhost для разработки
