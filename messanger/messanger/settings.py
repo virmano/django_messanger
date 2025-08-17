@@ -28,7 +28,7 @@ RECAPTCHA_PRIVATE_KEY = '6LfCFqUrAAAAADCkGUMYhEjgsN1fKSRyjPI0mS1X'
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "changeme")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DJANGO_DEBUG", "False") == "True"
+DEBUG = os.getenv("DJANGO_DEBUG", "True") == "True"
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "").split(",")
 
 # Если пусто, можно задать хотя бы localhost для разработки
