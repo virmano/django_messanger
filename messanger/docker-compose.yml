@@ -5,12 +5,11 @@ services:
     image: mysql:8.0
     container_name: my_db
     restart: always
-    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     environment:
-      MYSQL_DATABASE: mydb
-      MYSQL_USER: myuser
-      MYSQL_PASSWORD: mypassword
-      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: messenger_db
+      MYSQL_USER: messenger_user
+      MYSQL_PASSWORD: userpass
     ports:
       - "3306:3306"
     volumes:
@@ -21,18 +20,18 @@ services:
     container_name: my_django
     restart: always
     command: python manage.py runserver 0.0.0.0:8000
-    environment:
-      DJANGO_ALLOWED_HOSTS: localhost,127.0.0.1,0.0.0.0
-      DJANGO_SECRET_KEY: "supersecret"
-      DJANGO_DEBUG: "True"
-
-      DB_NAME: mydb
-      DB_USER: myuser
-      DB_PASSWORD: mypassword
-      DB_HOST: db
-      DB_PORT: 3306
+    volumes:
+      - .:/app
     ports:
       - "8000:8000"
+    environment:
+      DJANGO_ALLOWED_HOSTS: ${DJANGO_ALLOWED_HOSTS}
+      DJANGO_SETTINGS_MODULE: messanger.settings
+      DB_NAME: messenger_db
+      DB_USER: messenger_user
+      DB_PASSWORD: userpass
+      DB_HOST: db
+      DB_PORT: 3306
     depends_on:
       - db
 
