@@ -23,7 +23,7 @@ services:
     volumes:
       - .:/app
     ports:
-      - "8000:8000"
+      - "80:8000"
     environment:
       DJANGO_ALLOWED_HOSTS: ${DJANGO_ALLOWED_HOSTS}
       DJANGO_SETTINGS_MODULE: messanger.settings
